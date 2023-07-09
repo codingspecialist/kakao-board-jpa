@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@ToString
 @Builder
 @Getter
 @AllArgsConstructor
@@ -23,12 +24,5 @@ public class User{
     private String password;
     @Column(length = 50, nullable = false)
     private String email;
-
-    private LocalDateTime createdAt;
-
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
-    }
 }
 

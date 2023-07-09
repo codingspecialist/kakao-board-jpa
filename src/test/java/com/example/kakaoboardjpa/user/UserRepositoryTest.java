@@ -1,18 +1,15 @@
 package com.example.kakaoboardjpa.user;
 
 import com.example.kakaoboardjpa.DummyEntity;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.Import;
 
 import javax.persistence.EntityManager;
 import java.util.Optional;
 
-@Import(ObjectMapper.class)
 @DataJpaTest
 public class UserRepositoryTest extends DummyEntity {
 
@@ -55,7 +52,6 @@ public class UserRepositoryTest extends DummyEntity {
         Assertions.assertThat(user.getUsername()).isEqualTo("cos");
         Assertions.assertThat(user.getPassword()).isEqualTo("1234");
         Assertions.assertThat(user.getEmail()).isEqualTo("cos@nate.com");
-        System.out.println(user.getCreatedAt());
     }
 
     // 테이블명 틀려보고, 메서드이름도 틀려보자.
