@@ -6,8 +6,8 @@ import lombok.*;
 import javax.persistence.*;
 
 @ToString
-@Builder
 @Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
@@ -21,14 +21,13 @@ public class Board {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-    // List<Reply> replys;
-
     @Column(nullable = false)
     private String title;
 
     @Lob
     @Column(nullable = false)
     private String content;
+
 
     // 의미 있는 setter를 만든다.
     public void update(String title, String content){

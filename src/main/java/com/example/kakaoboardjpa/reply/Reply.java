@@ -5,8 +5,8 @@ import com.example.kakaoboardjpa.user.User;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
+@ToString
 @Builder
 @Getter
 @AllArgsConstructor
@@ -19,10 +19,10 @@ public class Reply {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Board board;
 
     @Column(nullable = false)
